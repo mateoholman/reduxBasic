@@ -28,10 +28,14 @@ function mapStateToProps(state) {
   };
 }
 
+//Anything returned from this function will show up as props on the BookList
+//container.
 function mapDispatchToProps(dispatch) {
   //Whenever selectBook is called, the result should be passed to all our
   //reducers.
   return bindActionCreators({ selectBook: selectBook }, dispatch);
 }
 
+//Promote BookList from a component to a container - it needs to know about
+//the dispatch method selectBook. Make it available as a prop.
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
